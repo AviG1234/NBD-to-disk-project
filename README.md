@@ -1,19 +1,17 @@
 # NBD-to-disk-project
 
 ## Overview
-This is a project to create Linux file systems that run in userspace. 
-the program conect to network block device (NBD) and uses the programs memory as a block device (disk). storeg is exeest thrue the interface class IStorage and can be replace for other perpecces.
-the project uses a freamework cald 'request engien' saved seperetly in the folder 'request_engien_fw'. the FW lisens to events 
 
-## Features
+This project demonstrates Linux file systems that operate in userspace. The core functionality involves establishing a connection to a network block device (NBD) and utilizing the program's memory as a block device (disk). Storage management is facilitated through the IStorage interface class, providing flexibility for replacement or customization according to specific requirements.
 
-- **Activation and Termination:**
-  - Activate the watchdog using the function `MakeMeImmortal(size_t n, unsigned int interval, char *wd_path, char **argv);`.
-  - Terminate the watchdog using the function `DoNotResuscitate(void);`.
+## Request Engine Framework
 
-- **Monitoring:**
-  - Monitors the status of another program specified through command-line arguments.
-  - If the monitored program does not send a periodic signal within a given interval, the watchdog takes corrective actions.
+- **FW Overview:**
+  The FW created as a class OOD project using several classic dising patterns. the linux oreated fw monitors file discriptors and handels events in a cofigereble way.
+  the FW oalsow give logging and p&p serveces. 
+
+- **FW cofigering and Activation:**
+  
 
 ## Example:
 ```c
