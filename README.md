@@ -5,42 +5,15 @@
 This project demonstrates Linux file systems that operate in userspace. The core functionality involves establishing a connection to a network block device (NBD) and utilizing the program's memory as a block device (disk). Storage management is facilitated through the IStorage interface class, providing flexibility for replacement or customization according to specific requirements.
 
 ## Request Engine Framework
+  - The framework (FW) is crafted as a class-oriented object-oriented design (OOD) project, employing various classic design patterns. In the Linux-oriented framework, file descriptors are continuously monitored, and events are handled in a configurable manner. Additionally, the framework provides logging capabilities and services for plug-and-play (P&P) functionality.
+  - A more simple demonstration of the FW is shown in the repository: XXXX
+  - Log of the runing programs errors is stord at ./log/logfile.log, in order to record all operations not only errors use uncoment the SetLogLevel method in ./test/request_enginefw_test.cpp main function.
+  - Using  plug-and-playfunctionality is dun by moving a shard obgect (.so file) to the ./plugins directory. 
 
-- **FW Overview:**
-  The FW created as a class OOD project using several classic dising patterns. the linux oreated fw monitors file discriptors and handels events in a cofigereble way.
-  the FW oalsow give logging and p&p serveces. 
 
-- **FW cofigering and Activation:**
-  
+## Build and Run:
+### Building the Code
+  - Compile the program in debug (-g) mode using '$ make' commend or without using '$ make MODE=GC'
 
-## Example:
-```c
-#include "watchdog.h" 
-
-int main(int argc, char **argv) {
-    // Activate the watchdog with parameters
-    status_ty status = MakeMeImmortal(3, 10, "/watchdog_files/wd_process", argv);
-
-    if (status == ACTIVATION_SUCCESS) {
-        // Your program logic here
-
-        // Terminate the watchdog when your program finishes
-        DoNotResuscitate();
-    } else {
-        // Handle activation failure
-        fprintf(stderr, "Watchdog activation failed.\n");
-    }
-
-    return 0;
-}
-
-```
-
-## Build and Test:
-Compile your watchdog program using your preferred compiler. Additionally, 
-a test file named usr_wd_test.c is provided for testing purposes
-### Build
--Wl,-rpath=./watchdog_files/ -ansi -pedantic-errors -Wall -Wextra -DNDEBUG -O3 -o test_watchdog usr_wd_test.c ./watchdog_files/watchdog.a ./watchdog_files/lib_release_ds.so -Iwatchdog_files -ldl
-
-### Run
-./test_watchdog
+### Running the Example Code:
+  -  Start by compileng the code by entering commend '$ make' to terminal. 
